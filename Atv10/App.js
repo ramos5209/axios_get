@@ -5,7 +5,12 @@ import axios from "axios";
 import api from "./src/devices/api.js";
 
 export default function App() {
-  const[compromissso, setCompromisso] = useState([]);
+  const[compromisso, setCompromisso] = useState([]);
+  const[newTitulo, setNewTitulo] = useState("");
+  const[newAnotacao, setNewAnotacao] = useState("");
+  const[newData, setNewData] = useState("");
+  const[newHora, setNewHora] = useState("");
+  const[newStatus, setNewStatus] = useState("");
 
   const API = "http://10.110.12.19:3000/compromisso";
 
@@ -18,12 +23,28 @@ export default function App() {
     } 
   }
 
+  const addComp = async () =>{
+    try{
+      const response = await api.post(API,
+      {titulo:newTitulo, anotacao:newAnotacao, data:newData, hora:newHora, status:newStatus }
+      );
+      setCompromisso([...compromisso, response.data]);
+      setNewTitulo("");
+      setNewAnotacao("");
+      setNewData("");
+      setNewHora("");
+      setNewStatus("");
+    }catch (error) {
+      console.error("Erro POST" , error.message)
+    }
+  }
+
   const deleteComp = async (id) => {
     try {
       // Faz requisição de DELETE para excluir um usuario pelo id
       await axios.delete(`${API}/${id}`);
       // Filtra a lista de usuarios, removendo o usuario do respectivo id informado
-      setCompromisso(compromissso.filter((u)=> u.id !== id));
+      setCompromisso(compromisso.filter((u)=> u.id !== id));
     } catch (error) {
       console.error("Error DELETE: ", error.message)
     }
@@ -39,10 +60,10 @@ export default function App() {
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
       <FlatList 
-        data={compromissso}
+        data={compromisso}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({item}) => (
-        <><Text style={styles.compromissso}> {item.id} - {item.titulo} - {item.anotacao} - {item.data} - {item.hora} - {item.status} </Text><Button title="Del" onPress={() => deleteComp(item.id)} /></>
+        <><Text style={styles.compromisso}> {item.id} - {item.titulo} - {item.anotacao} - {item.data} - {item.hora} - {item.status} </Text><Button title="Del" onPress={() => deleteComp(item.id)} /></>
         )}
       />
     </View>
