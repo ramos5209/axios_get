@@ -41,7 +41,6 @@ export default function App(){
         </View>
       )
     })
-    return vet;
   }
   return (
     <View style={styles.container}>

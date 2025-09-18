@@ -1,0 +1,12 @@
+{
+    "compromisso": [
+        {
+            "id": 1,
+            "titulo": "Reunião com cliente",
+            "anotacoes": "Levar contrato impresso",
+            "data": "2025-09-15",
+            "hora": "14:00",
+            "status": "agendado"
+        }
+    ]
+}

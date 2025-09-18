@@ -1,0 +1,6 @@
+Criar um projeto novo
+    npx create-expo-app@latest --template blank
+
+
+Iniciar um mockup com json-server
+    npx json-server db.json

@@ -7,7 +7,7 @@ export default function App() {
   // usuarios como array de estado
   const [users, setUsers] = useState([]);
   // Definir a URL da API que será consumida
-  const API = "http://10.110.12.15:3000/user"
+  const API = "http://10.110.12.19:3000/user"
 
   // Função assincrona para buscar a lista de usuario da API
   const fetchUsers = async () => {
