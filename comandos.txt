@@ -4,3 +4,6 @@ Criar um projeto novo
 
 Iniciar um mockup com json-server
     npx json-server db.json
+
+Iniciar o sistema 
+    npx expo start
