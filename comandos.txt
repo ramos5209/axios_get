@@ -7,3 +7,7 @@ Iniciar um mockup com json-server
 
 Iniciar o sistema 
     npx expo start
+Instalar dependecias do expo
+    npm install
+Instalar biblioteca expo-camera
+    npx expo install expo-camera
